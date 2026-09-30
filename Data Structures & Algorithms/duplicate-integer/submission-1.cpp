@@ -1,0 +1,31 @@
+class Solution {
+public:
+    bool hasDuplicate(vector<int>& nums) {
+        int n = nums.size();
+        int count =0;
+       /* for(int i=0;i<n;i++){
+          
+            for(int j =i+1;j<n;j++){
+                if(nums[i]==nums[j]){
+                    count++;
+                }
+            }
+        }
+        if(count>=1){
+            return true;
+        }
+        return false;*/
+
+        unordered_map<int,int> freq;
+        for(int i= 0;i<n;i++){
+            freq[nums[i]]++;
+        }
+        for(auto it : freq){
+            if(it.second>1){
+                return true;
+            }
+        }
+        
+        return false;
+    }
+};
